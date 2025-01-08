@@ -1,0 +1,105 @@
+
+
+# Autism Prediction System
+
+## Overview
+This project provides a Flask-based web application for predicting Autism Spectrum Disorder (ASD) risk in children using machine learning. It features a user-friendly web interface where users can input various attributes and receive predictions regarding ASD risk, alongside actionable recommendations.
+
+---
+
+## Features
+- **Interactive Form**: Collects user input for child-specific data.
+- **Machine Learning Model**: Logistic Regression model trained with balanced class weights for accurate predictions.
+- **Preprocessing Pipeline**: Includes scaling, polynomial feature expansion, and categorical data encoding.
+- **Risk Assessment**: Returns a risk prediction (Positive/Negative) with detailed recommendations.
+- **Real-Time Prediction**: Predicts ASD risk based on user input and displays results dynamically.
+
+---
+
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/autism-prediction.git
+   cd autism-prediction
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run the application:
+   ```bash
+   python app.py
+   ```
+
+4. Access the application in your browser at `http://127.0.0.1:5000`.
+
+---
+
+## Input Fields
+The application collects the following inputs:
+- **Age**: Numerical input for the child’s age.
+- **Gender**: Select Male/Female.
+- **Family History of ASD**: Select Yes/No.
+- **Developmental Milestones**: Select Normal/Delayed.
+- **AQ Score**: Numerical input for Autism Spectrum Quotient score.
+- **Social Interactions**: Select Good/Poor.
+- **Communication Skills**: Select Good/Poor.
+- **Behavioral Assessment Score**: Numerical input for behavioral score.
+- **Language Development**: Select Normal/Delayed.
+- **Motor Skills**: Select Normal/Delayed.
+
+---
+
+## Model
+- **Algorithm**: Logistic Regression with `class_weight='balanced'`.
+- **Dataset**: Synthetic dataset with 300 samples and 6 features.
+- **Preprocessing**:
+  - Scaling: StandardScaler.
+  - Feature Engineering: PolynomialFeatures (degree 2).
+  - Encoding: LabelEncoder for categorical variables.
+
+---
+
+## API Endpoints
+### 1. **Home** (`/`)
+   - Displays the interactive form for user input.
+
+### 2. **Predict** (`/predict`, `POST`)
+   - Accepts JSON data with user inputs.
+   - Returns ASD risk prediction (`0` for Negative, `1` for Positive) and probabilities.
+
+---
+
+## Example Usage
+### Input:
+```json
+{
+  "age": 5,
+  "gender": "Male",
+  "family_history_asd": "Yes",
+  "developmental_milestones": "Delayed",
+  "aq_score": 60,
+  "social_interactions": "Poor",
+  "communication_skills": "Poor",
+  "behavioral_assessment_score": 55,
+  "language_development": "Delayed",
+  "motor_skills": "Normal"
+}
+```
+
+### Output:
+```json
+{
+  "prediction": 1,
+  "probabilities": [0.1, 0.9]
+}
+```
+
+---
+
+## Files
+- **app.py**: Main application script.
+- **requirements.txt**: Python dependencies.
+- **templates/**: HTML templates
