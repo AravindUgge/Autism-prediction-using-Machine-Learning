@@ -496,7 +496,7 @@ html_template = """
     </main>
     <footer id="resources">
         <p>Resources: <a href="https://www.autismspeaks.org">Autism Speaks</a> | <a href="https://www.cdc.gov/ncbddd/autism">CDC Autism</a> | <a href="https://www.autism.org">Autism Society</a></p>
-        <p>&copy; 2025 xAI. All rights reserved.</p>
+        <p>&copy; 2025 Aravind Ugge. All rights reserved.</p>
     </footer>
 
     <script>
